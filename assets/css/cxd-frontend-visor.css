@@ -1,0 +1,326 @@
+.cxd-visor-frontend {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #3c434a;
+}
+.cxd-filters-wrapper {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.cxd-visor-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    flex-grow: 1;
+}
+.cxd-visor-filters input[type="text"], .cxd-visor-filters select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    min-width: 200px;
+    transition: border-color 0.2s;
+}
+.cxd-visor-filters input[type="text"]:focus, .cxd-visor-filters select:focus {
+    border-color: #0073aa;
+    outline: none;
+}
+.cxd-visor-filters .button {
+    background-color: #0073aa;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+.cxd-visor-filters .button:hover { background-color: #005a87; }
+.cxd-visor-filters .button-secondary {
+    background: #f0f0f0;
+    color: #555;
+    border: 1px solid #ddd;
+    text-decoration: none;
+}
+.cxd-visor-filters .button-secondary:hover { background: #e0e0e0; }
+.cxd-product-count {
+    font-size: 0.9em;
+    color: #777;
+    white-space: nowrap;
+}
+.cxd-product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+.cxd-product-card {
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.cxd-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.cxd-card-image { text-align: center; padding: 15px; background: #fff; }
+.cxd-card-image img { max-width: 100%; height: 180px; object-fit: contain; }
+.cxd-card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que este contenedor crezca y ocupe el espacio de la tarjeta */
+}
+.cxd-card-title { font-size: 1.1em; font-weight: 600; margin: 0 0 15px; }
+.cxd-card-details { display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+.cxd-card-price, .cxd-card-stock { font-size: 0.95em; }
+.cxd-card-price span { font-weight: bold; color: #0073aa; }
+.cxd-transfer-price { margin-left: 10px; font-size: 0.9em; color: #555; }
+.cxd-transfer-price span { color: #28a745; font-weight: bold; }
+.cxd-card-plans h4 { font-size: 1em; margin: 0 0 10px; }
+.cxd-card-plans ul { list-style: none; margin: 0; padding: 0; }
+.cxd-card-plans li { display: flex; justify-content: space-between; padding: 5px 0; font-size: 0.9em; }
+.cxd-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no caben */
+}
+
+.cxd-card-actions a,
+.cxd-card-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    flex-grow: 1; /* Hace que los botones ocupen el espacio disponible */
+    text-align: center;
+}
+
+.cxd-action-whatsapp {
+    background-color: #25D366;
+    color: white;
+}
+.cxd-action-whatsapp:hover {
+    background-color: #1EAE54;
+}
+
+/* Estilos para el nuevo botón "Ver" */
+.cxd-action-ver {
+    background-color: #0073aa; /* Azul estándar de WordPress */
+    color: white;
+}
+.cxd-action-ver:hover {
+    background-color: #005a87;
+}
+
+/* Estilos para el nuevo botón "Detalles" */
+.cxd-action-detalles {
+    background-color: #6c757d; /* Un gris neutro */
+    color: white;
+}
+.cxd-action-detalles:hover {
+    background-color: #5a6268;
+}
+
+.cxd-card-actions svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* --- Estilos para la Ventana Modal --- */
+
+.cxd-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.cxd-modal-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.cxd-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cxd-modal-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.cxd-modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
+    color: #888;
+    cursor: pointer;
+    padding: 0;
+}
+.cxd-modal-close-btn:hover {
+    color: #000;
+}
+
+.cxd-modal-body {
+    padding: 20px;
+    overflow-y: auto; /* Aquí está la magia del scroll */
+}
+
+/* Estilos para el contenido dentro del modal */
+.cxd-modal-body h1,
+.cxd-modal-body h2,
+.cxd-modal-body h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.cxd-modal-body p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.cxd-modal-body ul,
+.cxd-modal-body ol {
+    padding-left: 20px;
+}
+
+.cxd-pagination { margin-top: 40px; text-align: center; }
+.cxd-pagination .page-numbers { display: inline-block; padding: 8px 14px; border: 1px solid #ddd; background: #fff; text-decoration: none; margin: 0 3px; border-radius: 4px; color: #555; }
+.cxd-pagination .page-numbers:hover { background: #f7f7f7; }
+.cxd-pagination .page-numbers.current { background-color: #0073aa; color: white; border-color: #0073aa; }
+
+@media (min-width: 600px) {
+    .cxd-product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 992px) {
+    .cxd-product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --- Ajustes para filtros en pantallas grandes --- */
+@media (min-width: 768px) {
+    .cxd-visor-filters {
+        flex-wrap: nowrap; /* Evita que los elementos salten de línea */
+    }
+
+    .cxd-visor-filters input[type="text"],
+    .cxd-visor-filters select {
+        flex-grow: 1; /* Permite que los campos crezcan para ocupar el espacio */
+        width: auto; /* Base para que flex-grow funcione correctamente */
+    }
+
+    .cxd-visor-filters .button,
+    .cxd-visor-filters .cxd-stock-filter {
+        flex-shrink: 0; /* Evita que los botones y el checkbox se encojan */
+    }
+}
+
+/* Alineación de botones al pie de la card */
+.cxd-card-plans {
+    flex-grow: 1;
+}
+
+/* Swiper Carousel Styles */
+.cxd-card-image {
+    position: relative; /* Contenedor para los controles de Swiper */
+    text-align: center;
+    padding: 15px;
+    background: #fff;
+}
+
+.cxd-product-slider {
+    width: 100%;
+    height: 180px; /* Match the original image height */
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cxd-product-slider .swiper-pagination-bullet-active {
+    background: #0073aa;
+}
+
+.cxd-product-slider .swiper-button-next,
+.cxd-product-slider .swiper-button-prev {
+    color: #0073aa;
+    height: 20px; /* Altura más pequeña */
+    width: 20px; /* Anchura más pequeña */
+    margin-top: -10px; /* Centrado vertical */
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Hacemos más pequeños los iconos SVG de las flechas */
+.cxd-product-slider .swiper-button-next::after,
+.cxd-product-slider .swiper-button-prev::after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cxd-product-slider .swiper-pagination {
+    bottom: 5px !important; /* Un poco más arriba del borde */
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Mostrar controles en hover sobre el área de la imagen */
+.cxd-card-image:hover .swiper-button-next,
+.cxd-card-image:hover .swiper-button-prev,
+.cxd-card-image:hover .swiper-pagination {
+    opacity: 1;
+}
+

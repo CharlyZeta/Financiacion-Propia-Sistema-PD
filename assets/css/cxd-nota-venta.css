@@ -1,0 +1,126 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Form Control Normalization --- */
+/* This will fix the height and appearance of select, input, etc. */
+.form-input, 
+#nota-venta-form select, 
+#nota-venta-form input[type="text"],
+#nota-venta-form input[type="tel"],
+#nota-venta-form input[type="email"],
+#nota-venta-form input[type="date"],
+#nota-venta-form textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    transition: all 150ms ease-in-out;
+    -webkit-appearance: none; /* Removes default browser styling on iOS */
+    -moz-appearance: none; /* Removes default browser styling on Firefox */
+    appearance: none; /* Removes default browser styling */
+}
+
+/* Add arrow for select elements */
+#nota-venta-form select.form-input {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+
+#nota-venta-form input:focus,
+#nota-venta-form select:focus,
+#nota-venta-form textarea:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: #3b82f6; /* focus:border-blue-500 */
+    box-shadow: 0 0 0 2px #3b82f6; /* focus:ring-2 focus:ring-blue-500 */
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+}
+
+/* --- Surcharge Button Styling --- */
+/* This will fix the invisible buttons */
+.surcharge-btn {
+    display: inline-block;
+    padding: 0.25rem 0.75rem; /* smaller padding */
+    border: 1px solid #d1d5db;
+    font-size: 0.875rem; /* sm */
+    font-weight: 500;
+    border-radius: 0.375rem; /* rounded-md */
+    background-color: #ffffff;
+    color: #374151;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+.surcharge-btn:hover {
+    background-color: #f9fafb; /* hover:bg-gray-50 */
+}
+
+.surcharge-btn.active {
+    background-color: #2563eb; /* bg-blue-600 */
+    color: #ffffff;
+    border-color: #2563eb; /* border-blue-600 */
+}
+
+/* --- General Card/Button Styles (simplified from @apply) --- */
+.card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.card-header {
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    color: #374151;
+    background-color: #e5e7eb;
+    border-color: #e5e7eb;
+}
+.btn-secondary:hover {
+    background-color: #d1d5db;
+}
+
+#signature-canvas {
+    border: 2px dashed #d1d5db;
+    border-radius: 0.5rem;
+    cursor: crosshair;
+}

@@ -1,0 +1,320 @@
+---
+Versión: 2.9.7
+Fecha: 2026-03-04
+
+- FEATURE: Se ha agregado el "Precio por Transferencia" a la tarjeta del visor frontend de productos. El precio mostrado se calcula aplicando un porcentaje de descuento (configurable desde la página de ajustes de la calculadora) sobre el "Precio" (antes "Contado").
+- UPDATE: Se ha renombrado la etiqueta "Contado:" a "Precio:" en el visor de planes PxD y se ha actualizado la versión del plugin a 2.9.7.
+---
+Versión: 2.9.6
+Fecha: 2025-11-11
+
+- SECURITY: Se ha implementado control de acceso a la nota de venta. Solo administradores, gerentes de tienda y usuarios con rol "Vendedor de Pago Diario" o emails específicos pueden acceder. Se creó el rol "Vendedor de Pago Diario" al activar el plugin y se agregó campo en ajustes para emails autorizados.
+- UPDATE: Se ha incrementado la versión del plugin a 2.9.6.
+---
+---
+Versión: 2.9.5
+Fecha: 2025-11-11
+
+- FEATURE: Se ha agregado un apartado de "Entrega" en la nota de venta con un switch para "Entrega inmediata" (por defecto activado) y un selector de fecha que aparece al desactivarlo. Incluye validación para fechas futuras y se refleja en el PDF en la sección "Entrega y Conformidad".
+- UPDATE: Se ha incrementado la versión del plugin a 2.9.5.
+---
+---
+Versión: 2.9.4
+Fecha: 2025-11-11
+
+- FEATURE: Se ha agregado el campo Código Postal al formulario de la nota de venta, ubicado al lado de Localidad en la misma fila. El campo se incluye en el buscador de clientes, autocompletado y PDF generado.
+- UPDATE: Se ha incrementado la versión del plugin a 2.9.4.
+---
+---
+Versión: 2.9.3
+Fecha: 2025-11-11
+
+- FEATURE: Se ha agregado el campo DNI a la edición de usuarios en el admin de WordPress. Ahora los administradores pueden ver y editar el DNI de los clientes desde Usuarios > Editar. También se cambió la prioridad del campo en checkout para asegurar que aparezca.
+- UPDATE: Se ha incrementado la versión del plugin a 2.9.3.
+---
+---
+Versión: 2.9.2
+Fecha: 2025-11-11
+
+- FEATURE: Se ha integrado un campo DNI en WooCommerce. Ahora se captura el DNI en el checkout y se guarda en metadatos del usuario (billing_dni). El campo también aparece en el perfil de usuario para edición. Incluye migración automática de DNI existentes (desde '_dni' a 'billing_dni') al activar el plugin, permitiendo prescindir de plugins externos para este campo.
+- UPDATE: Se ha incrementado la versión del plugin a 2.9.2.
+---
+---
+Versión: 2.9.1
+Fecha: 2025-11-11
+
+- FEATURE: El campo de fecha en la Nota de Venta ahora es editable. Por defecto muestra la fecha actual, pero permite seleccionar fechas anteriores o posteriores. La fecha seleccionada se refleja en el PDF de la nota de venta enviada por email.
+- UPDATE: Se ha incrementado la versión del plugin a 2.9.1.
+---
+---
+Versión: 2.9.0
+Fecha: 2025-11-11
+
+- FEATURE: Se ha implementado un buscador de clientes en la Nota de Venta. Permite buscar clientes existentes de WooCommerce por DNI o nombre/apellido, mostrando una lista con DNI - Nombre - Domicilio para selección. Al seleccionar, se autocompletan los campos del formulario (apellido y nombres, DNI, domicilio, localidad, provincia, teléfono, email). Si no se selecciona ninguno, se puede ingresar manualmente. Muestra clientes aunque falten algunos datos.
+- UPDATE: Se ha incrementado la versión del plugin a 2.9.0.
+---
+---
+Versión: 2.8.9
+Fecha: 2025-11-08
+
+- FEATURE: Se ha implementado un buscador de productos en cada línea de producto de la Nota de Venta. Esto permite filtrar la lista de productos de forma independiente para cada artículo añadido, agilizando la selección en dispositivos móviles.
+- UPDATE: Se ha incrementado la versión del plugin a 2.8.9.
+---
+---
+Versión: 2.8.7
+Fecha: 2025-11-12
+
+- FEATURE: Se ha añadido el número de versión del plugin en el pie de página del "Visor Frontend" y de la "Nota de Venta". Esto ayudará a depurar problemas de caché al permitir verificar visualmente qué versión del plugin se está ejecutando en el servidor.
+- UPDATE: Se ha incrementado la versión del plugin a 2.8.7.
+
+---
+Versión: 2.8.6
+Fecha: 2025-11-12
+
+- REFACTOR: Se ha implementado un sistema de "cache busting" dinámico utilizando la fecha de modificación del archivo (`filemtime`) para el versionado de todos los assets (CSS/JS) del plugin. Este método es infalible y asegura que cualquier cambio en los archivos se refleje inmediatamente en todos los navegadores y cachés de servidor, solucionando de raíz los problemas de no ver las actualizaciones.
+- UPDATE: Se ha incrementado la versión del plugin a 2.8.6.
+
+---
+Versión: 2.8.5
+Fecha: 2025-11-11
+
+- REFACTOR: Se ha implementado un sistema de purga de caché mucho más robusto y agresivo. El plugin ahora utiliza el hook `upgrader_process_complete` para forzar la limpieza de la caché de los plugins más populares (LiteSpeed, WP Rocket, W3TC, SG Optimizer, etc.) inmediatamente después de que el proceso de actualización del plugin haya finalizado. Esto asegura que los cambios se reflejen de manera fiable en entornos con caché de servidor agresiva.
+- NOTE: Este cambio reemplaza los métodos anteriores y debería solucionar de forma definitiva los problemas de no ver las actualizaciones en producción.
+- UPDATE: Se ha incrementado la versión del plugin a 2.8.5.
+
+---
+Versión: 2.8.4
+Fecha: 2025-11-10
+
+- REFACTOR: Se ha implementado un sistema de "cache busting" dinámico utilizando la fecha de modificación del archivo (`filemtime`) para el versionado de los assets (CSS/JS). Este método es infalible y asegura que cualquier cambio en los archivos se refleje inmediatamente en todos los navegadores y cachés de servidor, solucionando de raíz los problemas de no ver las actualizaciones.
+- UPDATE: Se ha incrementado la versión del plugin a 2.8.4.
+
+---
+Versión: 2.8.3
+Fecha: 2025-11-09
+
+- FEATURE: Se ha añadido una función de auto-limpieza de caché. Ahora, al activar o actualizar el plugin, este intentará purgar automáticamente la caché de los plugins más populares (LiteSpeed Cache, WP Rocket, W3 Total Cache) para asegurar que los cambios en los archivos CSS y JS se reflejen inmediatamente en el sitio de producción.
+- NOTE: Este cambio soluciona el problema de no ver las actualizaciones debido a cachés de servidor agresivas.
+- UPDATE: Se ha incrementado la versión del plugin a 2.8.3.
+
+---
+Versión: 2.8.2
+Fecha: 2025-11-08
+
+- REFACTOR: Se ha centralizado el control de versiones de los assets (CSS/JS). Ahora, todos los archivos encolados usan una única constante `CXD_VERSION` definida en el archivo principal del plugin. Esto asegura que, al incrementar la versión del plugin, se fuerce la actualización de todos los archivos en el navegador y en las cachés del servidor, solucionando el problema de no ver los cambios tras una actualización.
+- UPDATE: Se ha incrementado la versión del plugin a 2.8.2.
+
+---
+Versión: 2.8.1
+Fecha: 2025-11-07
+
+- FIX: Corregido el cálculo de la fecha de finalización para los planes de pago diario. El algoritmo ahora excluye los domingos, proporcionando una fecha estimada de finalización mucho más precisa y realista.
+- UPDATE: Se ha incrementado la versión del plugin a 2.8.1.
+
+---
+Versión: 2.8.0
+Fecha: 2025-11-06
+
+- REFACTOR: Se ha rediseñado el flujo de usuario después de generar una nota de venta para prevenir notificaciones duplicadas. Ahora, tras el envío exitoso, el formulario se oculta y se muestra un panel de confirmación con el botón de WhatsApp (si aplica) y un nuevo botón "Crear Nueva Nota de Venta".
+- FIX: El panel de confirmación y el botón de WhatsApp ahora desaparecen correctamente al hacer clic en "Crear Nueva Nota de Venta", restaurando el formulario a su estado inicial.
+- UPDATE: Se ha incrementado la versión del plugin a 2.8.0 para reflejar este importante cambio en la experiencia de usuario.
+
+---
+Versión: 2.7.9
+Fecha: 2025-11-05
+
+- FEATURE: El mensaje de confirmación de WhatsApp ahora es totalmente personalizado. Incluye el nombre del cliente, los productos comprados, el plan de pago y la fecha estimada de finalización del pago si corresponde.
+- UPDATE: Mejorada la lógica en el backend para recopilar y formatear dinámicamente los detalles de la compra para el mensaje de WhatsApp.
+- UPDATE: Se ha incrementado la versión del plugin a 2.7.9.
+
+---
+Versión: 2.7.8
+Fecha: 2025-11-04
+
+- REFACTOR: Se ha rediseñado por completo el flujo de confirmación por WhatsApp. En lugar de incluir el enlace en el correo, ahora se muestra un botón de acción "Enviar Confirmación por WhatsApp" directamente en la pantalla después de generar la nota de venta, haciendo el proceso más intuitivo y fiable.
+- FIX: La función de validación de números de teléfono de WhatsApp (`cxd_get_whatsapp_link`) ha sido nuevamente mejorada para una máxima compatibilidad con los formatos de número argentinos.
+- UPDATE: La respuesta AJAX del formulario ahora incluye el enlace de WhatsApp para ser consumido por el frontend.
+- UPDATE: Se ha incrementado la versión del plugin a 2.7.8.
+
+---
+Versión: 2.7.7
+Fecha: 2025-11-03
+
+- FIX: Reescrita por completo la función de validación de números de teléfono para WhatsApp (`cxd_get_whatsapp_link`) para que sea significativamente más robusta. La nueva función ahora maneja correctamente múltiples formatos de números de teléfono argentinos, incluyendo aquellos con prefijos `0`, `15`, `+54`, `549`, o sin prefijos, asegurando que el enlace de confirmación se genere de manera fiable.
+- UPDATE: Se ha incrementado la versión del plugin a 2.7.7.
+
+---
+Versión: 2.7.6
+Fecha: 2025-11-02
+
+- FIX: Mejorada la robustez de la función de validación de números de teléfono de Argentina para WhatsApp, soportando múltiples formatos de entrada.
+- UPDATE: Se ha estandarizado el uso del protocolo `whatsapp://send` para la generación de enlaces de WhatsApp, asegurando una mejor compatibilidad con dispositivos móviles.
+- NOTE: La corrección del diseño del PDF de la Nota de Venta se mantiene como en la v2.7.5, mostrando los datos del cliente en una sola columna para garantizar la compatibilidad.
+- UPDATE: Se ha incrementado la versión del plugin a 2.7.6.
+
+---
+Versión: 2.7.5
+Fecha: 2025-11-02
+
+- FIX: Corregido el diseño de los datos del cliente en el PDF de la Nota de Venta para evitar que se apilen. Ahora se muestran en una sola columna con saltos de línea claros.
+- FIX: Actualizada la función de WhatsApp para usar el protocolo `whatsapp://send` que es más efectivo en dispositivos móviles.
+- UPDATE: El mensaje de confirmación de WhatsApp ha sido estandarizado al texto solicitado.
+- UPDATE: Se ha incrementado la versión del plugin a 2.7.5.
+
+---
+Versión: 2.7.4
+Fecha: 2025-11-01
+
+- FIX: Corregida la alineación vertical de los campos de producto (cantidad, selector, forma de pago, clase) en el formulario de la Nota de Venta para una apariencia más limpia.
+- UPDATE: Reordenados los datos del cliente en la plantilla del PDF de la Nota de Venta para un flujo de lectura más lógico.
+- FEATURE: Implementada la funcionalidad de confirmación por WhatsApp. Si se marca la casilla, se genera un enlace `wa.me` en el correo de la empresa para enviar un mensaje de confirmación al cliente.
+- UPDATE: Cambiada la etiqueta del checkbox de WhatsApp a "Enviar confirmación por WhatsApp" para mayor claridad.
+- UPDATE: Se ha incrementado la versión del plugin a 2.7.4.
+
+---
+Versión: 2.7.3
+Fecha: 2025-11-01
+
+- NEW: Se ha añadido un botón "Añadir a Nota" en cada producto del visor de planes para una integración directa con la Nota de Venta.
+- NEW: Se ha añadido un campo en los ajustes de la Nota de Venta para configurar la URL de la página que contiene el shortcode `[cxd_nota_venta]`.
+- UPDATE: La Nota de Venta ahora puede precargar un producto automáticamente si se le pasa el ID a través de un parámetro en la URL (ej: `?agregar-producto=123`).
+- UPDATE: Se ha incrementado la versión del plugin a 2.7.3.
+
+---
+Versión: 2.7.2
+Fecha: 2025-10-31
+
+ - FIX: Se agrega en el formulario el selector de clase de producto y se corrige como se muestra en el PFD que se envía por correo.
+ - FIX: Se cambia la forma de mostrar el precio final por precio por día en la nota de venta cuando se selecciona este tipo de financiación.
+---
+Versión: 2.7.1
+Fecha: 2025-10-31
+
+- UPDATE: El cálculo de recargo/descuento ahora actualiza y muestra el nuevo valor de la cuota diaria en tiempo real en el formulario de la Nota de Venta.
+- UPDATE: El PDF de la Nota de Venta ahora muestra el valor de la cuota diaria recalculada cuando se aplica un recargo/descuento.
+- UPDATE: Se ha incrementado la versión del plugin a 2.7.0.
+---
+Versión: 2.6.9
+Fecha: 2025-10-30
+
+- NEW: Se aplica cálculo de descuentos o recargos a la cuota seleccionada con sistema de pago diario.
+- UPDATE: Se ha incrementado la versión del plugin a 2.6.9.
+---
+Versión: 2.6.8
+Fecha: 2025-10-30
+
+- FIX: Corregido un bug en el formulario de Nota de Venta donde los botones de recargo/descuento no aparecían si el valor en la base de datos estaba vacío. El código JavaScript ahora es más robusto y maneja correctamente este caso.
+- UPDATE: Se ha incrementado la versión del plugin a 2.6.8.
+---
+Versión: 2.6.7
+Fecha: 2025-10-30
+
+- FEATURE: Re-implementada la funcionalidad de recargos/descuentos en la Nota de Venta. Ahora aparecen como botones configurables al seleccionar "Pago Diario".
+- UPDATE: Mejorada la interfaz de los botones de recargo/descuento para ser más claros y fáciles de usar en dispositivos móviles.
+- UPDATE: El PDF de la Nota de Venta ahora incluye una columna "Rec./Desc." que muestra el porcentaje aplicado a cada producto para mayor transparencia.
+- UPDATE: Se ha incrementado la versión del plugin a 2.7.6.
+---
+Versión: 2.6.6
+Fecha: 2025-10-30
+
+- UPDATE: Mejorado el formato de visualización de los planes de pago en la Nota de Venta. Ahora el selector muestra el número de días y el valor de la cuota diaria (ej: "30 días de $50.300") en lugar del monto total, para mayor claridad.
+- UPDATE: Se ha incrementado la versión del plugin a 2.6.6.
+---
+Versión: 2.6.5
+Fecha: 2025-10-30
+
+- UPDATE: Simplificada la interfaz de "Pago Diario" en la Nota de Venta. Se eliminaron las opciones de recargo/descuento para los planes de pago, mostrando únicamente la selección de días y el monto del plan.
+- REFACTOR: Eliminada toda la lógica de backend y frontend relacionada con los recargos/descuentos porcentuales en la Nota de Venta.
+- UPDATE: Se ha incrementado la versión del plugin a 2.6.5.
+---
+Versión: 2.6.4
+Fecha: 2025-10-30
+
+- NEW: Implementado un campo para la firma del cliente en la Nota de Venta para registrar su conformidad. La firma es obligatoria.
+- NEW: La firma del cliente ahora se incluye en el documento PDF generado.
+- REFACTOR: Re-introducido Tailwind CSS a través de un CDN para el diseño del formulario de la Nota de Venta, permitiendo una interfaz más rica y robusta.
+- UPDATE: Rediseñado el formulario de la Nota de Venta con una nueva cabecera y una disposición de campos más profesional.
+- UPDATE: Se ha incrementado la versión del plugin a 2.6.4.
+---
+Versión: 2.6.3
+Fecha: 2025-10-29
+
+- REFACTOR: Reescribir completamente el CSS de la Nota de Venta para usar CSS estándar, solucionando múltiples inconsistencias de diseño y eliminando la dependencia de una configuración de Tailwind que no funcionaba.
+- FIX: Corregida la altura y el formato del selector de provincia y del campo de teléfono para que sean uniformes con el resto del formulario.
+- FIX: Los botones de incremento/decremento de precios ahora tienen un estilo claro y visible, y un estado activo bien diferenciado.
+- FIX: Restaurado el formulario completo de la Nota de Venta, que había sido eliminado por error en una versión anterior.
+- UPDATE: El campo de email ahora ocupa el 50% del ancho en pantallas grandes, como se solicitó.
+- NEW: Añadido un checkbox "Enviar copia por WhatsApp" en los datos del cliente para futuras implementaciones.
+- FEATURE: Implementada la lógica completa de envío de correos. El PDF de la nota de venta ahora se envía correctamente al email de la empresa y al del cliente (si se proporciona).
+- UPDATE: Se ha incrementado la versión del plugin a 2.6.3.
+---
+Versión: 2.6.2
+Fecha: 2025-10-29
+
+- FIX: Los botones de descuento/incremento ahora aparecen y funcionan correctamente al seleccionar "Pago Diario" en la Nota de Venta.
+- FEATURE: Se ha implementado un sistema completo de formas de pago. Ahora se puede elegir entre Contado, Débito, Transferencia o Pago Diario. El precio se ajusta automáticamente al precio de contado si no se elige Pago Diario.
+- FEATURE: La Nota de Venta ahora solo muestra productos con stock disponible y muestra la cantidad de stock junto al nombre del producto para una fácil referencia.
+- FEATURE: Se ha añadido validación en tiempo real para asegurar que la cantidad de un producto en la Nota de Venta no exceda el stock disponible.
+- FEATURE: El PDF de la Nota de Venta ahora incluye la "Clase" del producto y la "Forma de Pago" seleccionada para cada artículo, tal como se solicitó.
+- UPDATE: Se ha incrementado la versión del plugin a 2.6.2.
+---
+Versión: 2.6.1
+Fecha: 2025-10-29
+
+- FIX: Corregido un error fatal de PHP en la generación de la Nota de Venta (`class-cxd-nota-venta-shortcode.php`) que ocurría por una sintaxis incorrecta al instanciar las clases de Dompdf.
+- UPDATE: Se ha mejorado el código para importar las clases de Dompdf con la declaración `use`, haciendo el código más limpio y robusto.
+- UPDATE: Se ha incrementado la versión del plugin a 2.6.1.
+---
+Versión: 2.6.0
+Fecha: 2025-10-29
+
+- NEW: Implementada la selección de "precios por día" en la Nota de Venta. Al añadir un producto, el vendedor ahora puede elegir un plan de pago específico.
+- NEW: Añadida la funcionalidad de recargos/descuentos porcentuales en la Nota de Venta. Se pueden configurar los porcentajes desde la página de ajustes.
+- NEW: Los botones de recargo aparecen dinámicamente y calculan el precio final en tiempo real.
+- UPDATE: La página de ajustes de la Nota de Venta ahora incluye un campo para gestionar los porcentajes de recargo.
+- UPDATE: El formulario de la Nota de Venta ha sido rediseñado para acomodar la nueva funcionalidad de selección de planes y recargos.
+- UPDATE: El procesamiento del formulario y la generación del PDF ahora incluyen la información del plan y el recargo seleccionado.
+- UPDATE: Se ha incrementado la versión del plugin a 2.6.0.
+---
+Versión: 2.5.0
+Fecha: 2025-10-28
+
+- NEW: Se ha añadido un nuevo campo meta `fecha_ultima_modificacion` que registra automáticamente la fecha y hora cada vez que se actualiza el precio de un producto.
+- NEW: Añadida una nueva columna "Últ. Mod. Precio" a la lista de productos de WooCommerce en el administrador, mostrando la fecha de la última modificación del precio.
+- NEW: Añadida la misma columna "Últ. Mod. Precio" al visor de productos del backend del plugin ("Visor de Planes PxD").
+- UPDATE: La lógica de guardado de planes ahora también se encarga de actualizar la nueva fecha, asegurando consistencia en todos los métodos de edición (normal, rápido y masivo).
+- UPDATE: Se ha incrementado la versión del plugin a 2.5.0 para reflejar la nueva funcionalidad.
+---
+Versión: 2.4.3
+Fecha: 2025-10-28
+
+- FIX: Corregido un problema de CSS en el carrusel de imágenes del producto. Los controles de navegación (flechas) y la paginación (puntos) ahora se posicionan correctamente dentro del área de la imagen en lugar de en la tarjeta del producto.
+- UPDATE: Los controles del carrusel ahora están ocultos por defecto y solo aparecen cuando el usuario pasa el cursor sobre la imagen, proporcionando una interfaz más limpia.
+- UPDATE: Se ha incrementado la versión del plugin a 2.4.3 para reflejar los cambios y purgar la caché de los navegadores.
+---
+Versión: 2.4.2
+Fecha: 2025-10-27
+
+- NEW: Implementado un carrusel de imágenes para cada producto en el visor frontend, utilizando Swiper.js. Ahora se muestran todas las imágenes de la galería del producto.
+- NEW: Añadida la versión del plugin en el pie de página del visor frontend y en la página de configuración del administrador.
+- UPDATE: La página de configuración del plugin ha sido movida a un submenú dentro del menú principal "Visor de Planes PxD" para una mejor organización.
+- UPDATE: Se ha incrementado la versión del plugin a 2.4.2.
+---
+Versión: 2.4.1
+Fecha: 2025-10-27
+
+- REFACTOR: Se ha refactorizado el sistema de procesamiento por lotes para mejorar el rendimiento en sitios con una gran cantidad de productos. Ahora, en lugar de realizar consultas paginadas, se obtiene una lista completa de IDs de productos al principio y luego se procesan en lotes. Esto evita timeouts de la base de datos y mejora la fiabilidad del proceso.
+- UPDATE: El script de frontend (`cxd-batch.js`) ha sido actualizado para funcionar con el nuevo sistema de lotes basado en IDs.
+- UPDATE: Se ha incrementado la versión del plugin a 2.4.1.
+---
+Versión: 2.4.0
+Fecha: 2025-10-24
+
+- REFACTOR: Reescrito por completo el sistema de recálculo en lote para que sea robusto y escalable. El nuevo sistema procesa productos en pequeños lotes paginados, evitando timeouts y errores de memoria en sitios con muchos productos.
+- UPDATE: La interfaz del proceso en lote ahora muestra una barra de progreso y un registro detallado en tiempo real para una mejor retroalimentación.
+---
+Versión: 2.3.2
+Fecha: 2025-10-24
+
+- FIX: Corregido el fallo de comunicación en el proceso por lotes. El script de JavaScript (`cxd-batch.js`) ahora envía el nonce de seguridad de AJAX con la clave correcta (`_ajax_nonce`) que WordPress espera por defecto.
+---
