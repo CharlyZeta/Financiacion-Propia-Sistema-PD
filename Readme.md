@@ -59,6 +59,10 @@ En producción (Estable - Versión 2.9.7).
 👨‍💻 Autor
 ---------
 **Gerardo Maidana**
+**Requiere WordPress:** 5.6+
+**Requiere PHP:** 7.4+
+**Compatible con WooCommerce:** 5.0 - 8.0+
+
 Backend Developer | Java & Spring Boot / WordPress Development
 LinkedIn [gerardomaidana](https://linkedin.com/in/gerardomaidana)
 GitHub [CharlyZeta](https://github.com/CharlyZeta/)

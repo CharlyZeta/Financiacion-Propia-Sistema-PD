@@ -10,6 +10,8 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       calculadora-costoxd
  * Domain Path:       /languages
+ * Requires at least: 5.6
+ * Requires PHP:      7.4
  * WC requires at least: 5.0
  * WC tested up to: 8.0+
  */
@@ -121,6 +123,16 @@ register_activation_hook( __FILE__, 'cxd_plugin_activate' );
 
 function cxd_plugin_deactivate() {}
 register_deactivation_hook( __FILE__, 'cxd_plugin_deactivate' );
+
+/**
+ * Agrega un enlace de "Configuración" en la página de listado de plugins.
+ */
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cxd_add_plugin_action_links' );
+function cxd_add_plugin_action_links( $links ) {
+    $settings_link = '<a href="admin.php?page=cxd-configuracion">' . __( 'Configuración', 'calculadora-costoxd' ) . '</a>';
+    array_unshift( $links, $settings_link );
+    return $links;
+}
 
 function cxd_handle_normal_save( $post_id ) {
     $price_to_use = null;
