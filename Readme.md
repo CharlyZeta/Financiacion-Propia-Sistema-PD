@@ -49,7 +49,7 @@ Simplemente añade estos shortcodes a páginas nuevas:
 
 📌 Estado del Proyecto
 -----------------------
-En producción (Estable - Versión 2.9.7).
+En producción (Estable - Versión 2.9.8).
 
 🛣 Roadmap
 ----------

@@ -155,29 +155,31 @@ function cxd_shortcode_visor_planes_handler( $atts ) {
                         if( ! $product ) continue;
                         $planes = get_post_meta( get_the_ID(), '_costoxd_planes', true );
                         
-                        $whatsapp_text = $product->get_name() . "\n\n";
+                        $whatsapp_text = "*" . html_entity_decode(strip_tags($product->get_name())) . "*\n\n";
                         $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                        if ($image_url) { $whatsapp_text .= 'Imagen: ' . $image_url . "\n\n"; }
+                        if ($image_url) { $whatsapp_text .= "Imagen: " . $image_url . "\n\n"; }
                         $precio_base = $product->get_price();
                         $precio_venta_formateado = wc_price( $precio_base, ['decimals' => 0] );
                         $precio_venta_limpio = html_entity_decode(strip_tags($precio_venta_formateado));
-                        $whatsapp_text .= 'Precio: ' . $precio_venta_limpio . "\n";
+                        $whatsapp_text .= "*Precio:* " . $precio_venta_limpio . "\n";
                         
                         $precio_transferencia = 0;
                         if ($descuento_transferencia > 0) {
                             $precio_transferencia = $precio_base * (1 - ($descuento_transferencia / 100));
                             $precio_transferencia_formateado = wc_price($precio_transferencia, ['decimals' => 0]);
                             $precio_transferencia_limpio = html_entity_decode(strip_tags($precio_transferencia_formateado));
-                            $whatsapp_text .= 'Transferencia: ' . $precio_transferencia_limpio . "\n";
+                            $whatsapp_text .= "*Transferencia:* " . $precio_transferencia_limpio . "\n";
                         }
                         if (!empty($planes)) { 
-                            $whatsapp_text .= "\nPlanes de Pago por Día:\n"; 
+                            $whatsapp_text .= "\n*Planes de Pago por Día:*\n"; 
                             foreach ($planes as $dias => $datos) { 
                                 $cuota_formateada = wc_price($datos['cuota_diaria'], ['decimals' => 0]);
                                 $cuota_limpia = html_entity_decode(strip_tags($cuota_formateada));
                                 $whatsapp_text .= "• " . $dias . " días: " . $cuota_limpia . "\n"; 
                             } 
                         }
+                        
+                        $whatsapp_text_encoded = rawurlencode($whatsapp_text);
                         
                         $stock_status_product = $product->get_stock_status(); $stock_quantity = $product->get_stock_quantity();
                         if ($stock_status_product === 'instock') { $stock_html = '<span style="color:green;">En stock' . ($stock_quantity ? " ({$stock_quantity})" : '') . '</span>'; } else { $stock_html = '<span style="color:red;">Agotado</span>'; }
@@ -237,7 +239,7 @@ function cxd_shortcode_visor_planes_handler( $atts ) {
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/></svg>
                                     Detalles
                                 </button>
-                                <a class="cxd-action-whatsapp" title="Compartir por WhatsApp" data-text="<?php echo esc_attr($whatsapp_text); ?>" onclick="this.href='https://api.whatsapp.com/send?text=' + encodeURIComponent(this.getAttribute('data-text'));" target="_blank">
+                                <a class="cxd-action-whatsapp" title="Compartir por WhatsApp" data-text="<?php echo esc_attr($whatsapp_text_encoded); ?>" onclick="this.href='https://api.whatsapp.com/send?text=' + this.getAttribute('data-text');" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="white"><path d="M35.2,12.8c-3-3-6.9-4.6-11.2-4.6C15.3,8.2,8.2,15.3,8.2,24c0,3,0.8,5.9,2.4,8.4L11,33l-1.6,5.8 l6-1.6l0.6,0.3c2.4,1.4,5.2,2.2,8,2.2h0c8.7,0,15.8-7.1,15.8-15.8C39.8,19.8,38.2,15.8,35.2,12.8z M24,38.8L24,38.8 c-2.7,0-5.3-0.7-7.6-2.1l-0.5-0.3l-5.6,1.5l1.5-5.5l-0.3-0.6C10,29.2,9.2,26.7,9.2,24c0-7.6,6.2-13.8,13.8-13.8 c3.8,0,7.3,1.5,9.8,4.1c2.5,2.5,4.1,6,4.1,9.8C37.8,32.6,31.6,38.8,24,38.8z"/><path fill="white" d="M19.3,16c-0.4-0.8-0.7-0.8-1.1-0.8c-0.3,0-0.6,0-0.9,0 s-0.8,0.1-1.3,0.6c-0.4,0.5-1.7,1.6-1.7,4s1.7,4.6,1.9,4.9s3.3,5.3,8.1,7.2c4,1.6,4.8,1.3,5.7,1.2c0.9-0.1,2.8-1.1,3.2-2.3 c0.4-1.1,0.4-2.1,0.3-2.3c-0.1-0.2-0.4-0.3-0.9-0.6s-2.8-1.4-3.2-1.5c-0.4-0.2-0.8-0.2-1.1,0.2c-0.3,0.5-1.2,1.5-1.5,1.9 c-0.3,0.3-0.6,0.4-1,0.1c-0.5-0.2-2-0.7-3.8-2.4c-1.4-1.3-2.4-2.8-2.6-3.3c-0.3-0.5,0-0.7,0.2-1c0.2-0.2,0.5-0.6,0.7-0.8 c0.2-0.3,0.3-0.5,0.5-0.8c0.2-0.3,0.1-0.6,0-0.8C20.6,19.3,19.7,17,19.3,16z"/></svg>
                                     Compartir
                                 </a>

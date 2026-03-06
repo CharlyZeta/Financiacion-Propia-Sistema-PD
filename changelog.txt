@@ -1,4 +1,12 @@
 ---
+Versión: 2.9.8
+Fecha: 2026-03-06
+
+- FEATURE: El mensaje generado para compartir la ficha del producto por WhatsApp ha sido mejorado significativamente. Ahora aplica saltos de línea obligatorios y formato en negrita (para los títulos de Precio, Transferencia y Planes de Pago) usando codificación URL estricta (`rawurlencode`). Esto soluciona los problemas de apilamiento de texto en algunos navegadores móviles, garantizando una lectura estructurada y prolija para el cliente.
+- NEW: Se ha añadido a la página de plugins y meta tags de cabecera la versión mínima requerida de WordPress (5.6) y PHP (7.4).
+- NEW: Se ha agregado un enlace directo a "Configuración" en la página de listado de plugins de WordPress (debajo del nombre del plugin).
+- UPDATE: Se ha actualizado el número de versión del plugin a 2.9.8.
+---
 Versión: 2.9.7
 Fecha: 2026-03-04
 
