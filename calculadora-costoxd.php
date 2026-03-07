@@ -3,7 +3,7 @@
  * Plugin Name:       Calculadora de Costos y Planes por Día
  * Plugin URI:        https://github.com/gmaidana/
  * Description:       Calcula planes de pago por día para productos de WooCommerce y permite generar notas de venta.
- * Version:           2.9.8
+ * Version:           2.9.9
  * Author:            Gerardo Maidana
  * Author URI:        https://github.com/gmaidana/
  * License:           GPL-2.0+
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'CXD_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'CXD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'CXD_VERSION', '2.9.8' );
+define( 'CXD_VERSION', '2.9.9' );
 
 require_once CXD_PLUGIN_PATH . 'includes/cxd-core-functions.php';
 require_once CXD_PLUGIN_PATH . 'includes/cxd-shortcode-handler.php';
@@ -129,7 +129,7 @@ register_deactivation_hook( __FILE__, 'cxd_plugin_deactivate' );
  */
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cxd_add_plugin_action_links' );
 function cxd_add_plugin_action_links( $links ) {
-    $settings_link = '<a href="admin.php?page=cxd-configuracion">' . __( 'Configuración', 'calculadora-costoxd' ) . '</a>';
+    $settings_link = '<a href="admin.php?page=costoxd-config">' . __( 'Configuración', 'calculadora-costoxd' ) . '</a>';
     array_unshift( $links, $settings_link );
     return $links;
 }

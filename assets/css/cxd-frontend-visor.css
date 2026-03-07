@@ -40,7 +40,7 @@
 }
 
 .cxd-visor-filters .button {
-    background-color: #0073aa;
+    background-color: #28a745;
     color: white;
     border: none;
     padding: 11px 20px;
@@ -51,18 +51,18 @@
 }
 
 .cxd-visor-filters .button:hover {
-    background-color: #005a87;
+    background-color: #218838;
 }
 
 .cxd-visor-filters .button-secondary {
-    background: #f0f0f0;
-    color: #555;
-    border: 1px solid #ddd;
+    background: #dc3545;
+    color: white;
+    border: 1px solid #dc3545;
     text-decoration: none;
 }
 
 .cxd-visor-filters .button-secondary:hover {
-    background: #e0e0e0;
+    background: #c82333;
 }
 
 .cxd-product-count {

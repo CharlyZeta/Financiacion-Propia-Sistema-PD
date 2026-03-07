@@ -158,14 +158,14 @@ function cxd_shortcode_visor_planes_handler( $atts ) {
                         $whatsapp_text = "*" . html_entity_decode(strip_tags($product->get_name())) . "*\n\n";
                         $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                         if ($image_url) { $whatsapp_text .= "Imagen: " . $image_url . "\n\n"; }
-                        $precio_base = $product->get_price();
+                        $precio_base = floatval( $product->get_price() );
                         $precio_venta_formateado = wc_price( $precio_base, ['decimals' => 0] );
                         $precio_venta_limpio = html_entity_decode(strip_tags($precio_venta_formateado));
                         $whatsapp_text .= "*Precio:* " . $precio_venta_limpio . "\n";
                         
                         $precio_transferencia = 0;
                         if ($descuento_transferencia > 0) {
-                            $precio_transferencia = $precio_base * (1 - ($descuento_transferencia / 100));
+                            $precio_transferencia = $precio_base * (1 - (floatval($descuento_transferencia) / 100));
                             $precio_transferencia_formateado = wc_price($precio_transferencia, ['decimals' => 0]);
                             $precio_transferencia_limpio = html_entity_decode(strip_tags($precio_transferencia_formateado));
                             $whatsapp_text .= "*Transferencia:* " . $precio_transferencia_limpio . "\n";

@@ -1,4 +1,10 @@
 ---
+Versión: 2.9.9
+Fecha: 2026-03-07
+
+- FIX: Corregido un `TypeError` fatal en PHP 8.x que impedía cargar el visor de planes del shortcode `[visor_planes_pxd]`. El error ocurría porque `$product->get_price()` puede retornar una cadena de texto y al operar con ella (multiplicar por el descuento de transferencia) PHP lanzaba una excepción. Se solucionó con conversiones explícitas a `float` usando `floatval()` tanto sobre el precio base como sobre el porcentaje de descuento.
+- UPDATE: Se ha incrementado la versión del plugin a 2.9.9.
+---
 Versión: 2.9.8
 Fecha: 2026-03-06
 
