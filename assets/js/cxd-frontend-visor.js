@@ -7,10 +7,11 @@ jQuery(document).ready(function ($) {
     }
 
     // Delegación de eventos para el botón de WhatsApp.
-    // El data-text llega como texto plano desde PHP; aquí se aplica encodeURIComponent una sola vez.
+    // El data-text llega con \n como secuencia literal (para sobrevivir atributos HTML).
+    // Se restaura a saltos de línea reales antes de aplicar encodeURIComponent.
     $('.cxd-product-grid').on('click', '.cxd-action-whatsapp', function (e) {
         e.preventDefault();
-        const text = $(this).data('text');
+        const text = $(this).data('text').replace(/\\n/g, '\n');
         const whatsappUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(text);
         window.open(whatsappUrl, '_blank');
     });

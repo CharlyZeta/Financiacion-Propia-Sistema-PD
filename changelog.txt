@@ -1,4 +1,10 @@
 ---
+Versión: 3.0.1
+Fecha: 2026-03-10
+
+- FIX: Corregidos los saltos de línea en el mensaje de WhatsApp del visor de productos. Los navegadores normalizan los caracteres de nueva línea (`\n`) a espacios cuando se leen desde atributos HTML, causando que todo el texto apareciera en una sola línea. Se solucionó convirtiendo los saltos de línea a la secuencia literal `\n` en PHP antes de pasarlos al `data-text`, y restituyéndolos a saltos de línea reales en JavaScript antes de codificar la URL.
+- UPDATE: Se ha incrementado la versión del plugin a 3.0.1.
+---
 Versión: 3.0.0
 Fecha: 2026-03-10
 
