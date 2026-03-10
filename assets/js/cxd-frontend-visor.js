@@ -1,13 +1,15 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     const stockFilter = document.querySelector('.cxd-visor-filters input[name="stock_pxd"]');
     if (stockFilter) {
-        stockFilter.addEventListener('change', function() {
+        stockFilter.addEventListener('change', function () {
             this.form.submit();
         });
     }
 
-    // Delegación de eventos para el botón de WhatsApp
-    $('.cxd-product-grid').on('click', '.cxd-action-whatsapp', function() {
+    // Delegación de eventos para el botón de WhatsApp.
+    // El data-text llega como texto plano desde PHP; aquí se aplica encodeURIComponent una sola vez.
+    $('.cxd-product-grid').on('click', '.cxd-action-whatsapp', function (e) {
+        e.preventDefault();
         const text = $(this).data('text');
         const whatsappUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(text);
         window.open(whatsappUrl, '_blank');
@@ -16,7 +18,7 @@ jQuery(document).ready(function($) {
     // --- Lógica para la nueva ventana modal de detalles ---
 
     // 1. Abrir la modal
-    $('.cxd-product-grid').on('click', '.cxd-action-detalles', function() {
+    $('.cxd-product-grid').on('click', '.cxd-action-detalles', function () {
         const card = $(this).closest('.cxd-product-card');
         const title = card.find('.cxd-card-title').text();
         const descriptionHtml = card.find('.cxd-product-description-hidden').html();
@@ -38,14 +40,14 @@ jQuery(document).ready(function($) {
     $('#cxd-modal-close').on('click', closeModal);
 
     // Evento para cerrar al hacer clic fuera del contenido
-    $('.cxd-modal-overlay').on('click', function(event) {
+    $('.cxd-modal-overlay').on('click', function (event) {
         if ($(event.target).is('.cxd-modal-overlay')) {
             closeModal();
         }
     });
 
     // Evento para cerrar con la tecla 'Escape'
-    $(document).on('keydown', function(event) {
+    $(document).on('keydown', function (event) {
         if (event.key === "Escape") {
             closeModal();
         }
@@ -53,7 +55,7 @@ jQuery(document).ready(function($) {
 
     // Inicializar los carruseles de Swiper
     function initSwiper() {
-        $('.cxd-product-slider').each(function() {
+        $('.cxd-product-slider').each(function () {
             new Swiper(this, {
                 loop: true,
                 pagination: {

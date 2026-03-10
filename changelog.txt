@@ -1,4 +1,10 @@
 ---
+Versión: 3.0.0
+Fecha: 2026-03-10
+
+- FIX: Corregido el doble encoding en el mensaje de WhatsApp del visor de productos. El texto se generaba con `rawurlencode()` en PHP y luego se volvía a codificar con `encodeURIComponent()` en JavaScript, haciendo que el mensaje mostrara caracteres URL-codificados crudos (ej: `%2A`, `%20`) en lugar de texto legible. Se eliminó `rawurlencode()` de PHP y el `onclick` inline del anchor: ahora el texto plano se almacena en `data-text` y el JS aplica `encodeURIComponent()` una sola vez al construir la URL.
+- UPDATE: Se ha incrementado la versión del plugin a 3.0.0.
+---
 Versión: 2.9.9
 Fecha: 2026-03-07
 
