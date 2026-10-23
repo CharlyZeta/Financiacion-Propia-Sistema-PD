@@ -1,2 +1,8 @@
 PLUGIN_CONTEXT.md
 making-readme-md.md
+.idea/
+debug.log
+data/
+*.log
+*.zip
+temp_build/
